@@ -18,8 +18,14 @@ var init = function () {
     S.set(640, 480, 10, 10);
     S.ls(vp.x, vp.y, vp.w, vp.h);
 
-    var sec = S.getPos(0, 0);
-    sec.pl = {
+    S.secs.forEach(function (sec) {
+
+        sec.pl = [];
+
+    });
+
+    var sec = S.getPos(-32, -32);
+    sec.pl.push({
 
         x : -32,
         y : -32,
@@ -27,7 +33,17 @@ var init = function () {
         h : 64,
         id : 'home'
 
-    };
+    });
+
+    sec.pl.push({
+
+        x : -230,
+        y : -128,
+        w : 32,
+        h : 32,
+        id : 'moon'
+
+    });
 
     _.l(vp);
     _.l(C);
@@ -74,12 +90,16 @@ draw = function () {
             ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
              */
 
-            if (sec.pl) {
+            if (sec.pl.length > 0) {
 
-                var pl = vp.makeVPRel(sec.pl);
+                sec.pl.forEach(function (pl) {
 
-                ctx.strokeStyle = '#00ffff';
-                ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
+                    pl = vp.makeVPRel(pl);
+
+                    ctx.strokeStyle = '#00ffff';
+                    ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
+
+                });
 
                 /*
                 var w = 320,
