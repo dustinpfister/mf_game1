@@ -49,26 +49,29 @@ draw = function () {
 
         C.hiDraw(function (ctx) {
 
-            obj = {
+            obj = vp.makeVPRel({
 
-                x : sec.x,
-                y : sec.y,
-                w : S.sw,
-                h : S.sh
+                    x : sec.x,
+                    y : sec.y,
+                    w : S.sw,
+                    h : S.sh
 
-            }
+                });
 
-            x = sec.x - vp.x;
-            y = sec.y - vp.y;
-            w = S.sw;
-            h = S.sh;
 
             ctx.strokeStyle = '#00ff00';
-            ctx.strokeRect(x, y, w, h);
+            ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
 
-            obj = vp.scaleToFit(obj, 320, 240, 0, 0);
-			
-			ctx.strokeStyle = 'rgba(0,128,0,.5)';
+            obj = vp.scaleToFit({
+
+                    x : sec.x,
+                    y : sec.y,
+                    w : S.sw,
+                    h : S.sh
+
+                }, 320, 240, 0, 0);
+
+            ctx.strokeStyle = 'rgba(0,128,0,.5)';
             ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
 
             if (sec.pl) {
