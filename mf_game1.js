@@ -58,21 +58,21 @@ draw = function () {
 
                 });
 
-
             ctx.strokeStyle = '#00ff00';
             ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
-
+            /*
             obj = vp.scaleToFit({
 
-                    x : sec.x,
-                    y : sec.y,
-                    w : S.sw,
-                    h : S.sh
+            x : sec.x,
+            y : sec.y,
+            w : S.sw,
+            h : S.sh
 
-                }, 320, 240, 0, 0);
+            }, 320, 240, 0, 0);
 
             ctx.strokeStyle = 'rgba(0,128,0,.5)';
             ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
+             */
 
             if (sec.pl) {
 
@@ -81,6 +81,7 @@ draw = function () {
                 ctx.strokeStyle = '#00ffff';
                 ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
 
+                /*
                 var w = 320,
                 h = 240,
                 x = 0,
@@ -93,6 +94,7 @@ draw = function () {
                 ctx.strokeStyle = 'rgba(0,128,128,.5)';
                 ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
 
+                 */
             }
 
         });
