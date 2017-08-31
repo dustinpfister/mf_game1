@@ -21,8 +21,10 @@ var init = function () {
     var sec = S.getPos(0, 0);
     sec.pl = {
 
-        x : 0,
-        y : 0,
+        x : -32,
+        y : -32,
+        w : 64,
+        h : 64,
         id : 'home'
 
     };
@@ -44,19 +46,28 @@ draw = function () {
             ctx.strokeStyle = '#00ff00';
             ctx.strokeRect(sec.x - vp.x, sec.y - vp.y, S.sw, S.sh);
 
+            if (sec.pl) {
+
+                var pl = vp.makeVPRel(sec.pl);
+
+                ctx.strokeStyle = '#00ffff';
+                ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
+
+            }
+
         });
 
     });
 
 },
 
-x = 0, y = 0, i = 0, max = 500,
+x = 0, y = 0, i = 0, max = 1250,
 loop = function () {
 
     requestAnimationFrame(loop);
 
-    x = Math.cos(Math.PI * 2 / max * i) * (vp.w);
-    y = Math.sin(Math.PI * 2 / max * i) * (vp.h);
+    x = Math.cos(Math.PI * 2 / max * i) * (vp.w / 4);
+    y = Math.sin(Math.PI * 2 / max * i) * (vp.h / 4);
 
     vp.lookAt(x, y);
 
