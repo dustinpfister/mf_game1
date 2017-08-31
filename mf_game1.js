@@ -38,19 +38,56 @@ var init = function () {
 // draw method
 draw = function () {
 
+    var x,
+    obj,
+    y,
+    w,
+    h;
+
     C.cls();
     S.load.forEach(function (sec) {
 
         C.hiDraw(function (ctx) {
 
+            obj = {
+
+                x : sec.x,
+                y : sec.y,
+                w : S.sw,
+                h : S.sh
+
+            }
+
+            x = sec.x - vp.x;
+            y = sec.y - vp.y;
+            w = S.sw;
+            h = S.sh;
+
             ctx.strokeStyle = '#00ff00';
-            ctx.strokeRect(sec.x - vp.x, sec.y - vp.y, S.sw, S.sh);
+            ctx.strokeRect(x, y, w, h);
+
+            obj = vp.scaleToFit(obj, 320, 240, 0, 0);
+			
+			ctx.strokeStyle = 'rgba(0,128,0,.5)';
+            ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
 
             if (sec.pl) {
 
                 var pl = vp.makeVPRel(sec.pl);
 
                 ctx.strokeStyle = '#00ffff';
+                ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
+
+                var w = 320,
+                h = 240,
+                x = 0,
+                y = 0;
+
+                pl = vp.scaleToFit(sec.pl, w, h, x, y);
+
+                ctx.fillStyle = 'rgba(128,128,128,.5)';
+                ctx.fillRect(x, y, w, h);
+                ctx.strokeStyle = 'rgba(0,128,128,.5)';
                 ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
 
             }
