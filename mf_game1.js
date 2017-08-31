@@ -1,4 +1,5 @@
 
+var playerObj;
 
 var init = function () {
 
@@ -18,12 +19,14 @@ var init = function () {
     S.set(640, 480, 10, 10);
     S.ls(vp.x, vp.y, vp.w, vp.h);
 
+    // pl array for each section
     S.secs.forEach(function (sec) {
 
         sec.pl = [];
 
     });
 
+    // some starting planets
     var sec = S.getPos(-32, -32);
     sec.pl.push({
 
@@ -34,7 +37,6 @@ var init = function () {
         id : 'home'
 
     });
-
     sec.pl.push({
 
         x : -230,
@@ -44,6 +46,16 @@ var init = function () {
         id : 'moon'
 
     });
+
+    // playerObj
+    playerObj = {
+
+        x : -8,
+        y : -8,
+        w : 16,
+        h : 16
+
+    };
 
     _.l(vp);
     _.l(C);
@@ -121,6 +133,16 @@ draw = function () {
 
     });
 
+    // draw the player object
+    C.hiDraw(function (ctx) {
+
+	    var obj = vp.makeVPRel(playerObj);
+	
+        ctx.strokeStyle = '#ff00ff';
+        ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
+
+    });
+
 },
 
 x = 0, y = 0, i = 0, max = 1250,
@@ -134,6 +156,12 @@ loop = function () {
     vp.lookAt(x, y);
 
     S.ls(vp.x, vp.y, vp.w, vp.h);
+	
+	// player object
+	var obj = playerObj;
+	
+	obj.x = vp.x + vp.w / 2 - obj.w / 2;
+	obj.y = vp.y + vp.h / 2 - obj.h / 2;
 
     draw();
 
