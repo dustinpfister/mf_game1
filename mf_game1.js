@@ -58,7 +58,8 @@ var init = function () {
         y : -32,
         w : 64,
         h : 64,
-        id : 'home'
+        id : 'home',
+        po : false
 
     });
     sec.pl.push({
@@ -67,7 +68,8 @@ var init = function () {
         y : -128,
         w : 32,
         h : 32,
-        id : 'moon'
+        id : 'moon',
+        po : false
 
     });
 
@@ -166,8 +168,8 @@ draw = function () {
         ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
 
     });
-	
-	C.drawInfo([currentPl.id || '']);
+
+    C.drawInfo([currentPl.id || '']);
 
 },
 
@@ -201,7 +203,7 @@ loop = function () {
 
     var pl = onPl(S.getPos(obj.x, obj.y), obj);
 
-	currentPl = {};
+    currentPl = {};
     if (pl) {
 
         currentPl = pl;
