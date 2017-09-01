@@ -194,7 +194,7 @@ loop = function () {
     //x = Math.cos(Math.PI * 2 / max * i) * (vp.w / 4);
     //y = Math.sin(Math.PI * 2 / max * i) * (vp.h / 4);
 
-	
+
     // player object
     var obj = playerObj;
 
@@ -205,14 +205,13 @@ loop = function () {
         x += Math.cos(d) * 2;
         y += Math.sin(d) * 2;
 
-		obj.a = d;
-		
+        obj.a = d;
+
     }
 
     vp.lookAt(x, y);
 
     S.ls(vp.x, vp.y, vp.w, vp.h);
-
 
     obj.x = vp.x + vp.w / 2 - obj.w / 2;
     obj.y = vp.y + vp.h / 2 - obj.h / 2;
@@ -220,13 +219,13 @@ loop = function () {
     // fire shots
     if (kc.keys[186]) {
 
-        shots.add(new Unit({
+        shots.add(new Shot({
 
-                x : obj.x,
-                y : obj.y,
+                x : obj.x + obj.w / 2 -2,
+                y : obj.y + obj.h / 2 -2,
                 w : 4,
                 h : 4,
-				a : obj.a
+                a : obj.a
 
             }));
 
@@ -242,9 +241,9 @@ loop = function () {
 
     }
 
-	// step shots
-	shots.step();
-	
+    // step shots
+    shots.step();
+
     draw();
 
     i += 1;
