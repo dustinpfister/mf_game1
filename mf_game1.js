@@ -1,5 +1,6 @@
 
 var playerObj,
+shots = [],
 currentPl = {};
 
 // my "on planet" method
@@ -74,14 +75,11 @@ var init = function () {
     });
 
     // playerObj
-    playerObj = {
 
-        x : -8,
-        y : -8,
-        w : 16,
-        h : 16
-
-    };
+	playerObj = new Unit();
+	
+	// shots
+	shots = new UnitCollection();
 
     _.l(vp);
     _.l(C);
