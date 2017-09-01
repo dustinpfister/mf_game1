@@ -167,6 +167,21 @@ draw = function () {
 
     });
 
+    // draw shots
+    C.hiDraw(function (ctx) {
+
+        // just always draw all units in the collection
+        shots.units.forEach(function (sh) {
+
+            var obj = vp.makeVPRel(sh);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(obj.x, obj.y, obj.w, obj.h);
+
+        });
+
+    });
+
     C.drawInfo([currentPl.id || '']);
 
 },
