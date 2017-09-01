@@ -203,19 +203,35 @@ loop = function () {
 
     if (d >= 0) {
 
-        x += Math.cos(d) * 2;
-        y += Math.sin(d) * 2;
+        //x += Math.cos(d) * 2;
+        //y += Math.sin(d) * 2;
 
-        obj.a = d;
+        //obj.a = d;
 
+        if (obj.a < d) {
+
+            obj.a += Math.PI / 100;
+
+        } else {
+
+            obj.a -= Math.PI / 100;
+
+        }
+
+        obj.step();
     }
+
+    //obj.step();
 
     vp.lookAt(x, y);
 
     S.ls(vp.x, vp.y, vp.w, vp.h);
 
-    obj.x = vp.x + vp.w / 2 - obj.w / 2;
-    obj.y = vp.y + vp.h / 2 - obj.h / 2;
+    //obj.x = vp.x + vp.w / 2 - obj.w / 2;
+    //obj.y = vp.y + vp.h / 2 - obj.h / 2;
+
+    vp.x = obj.x - vp.w / 2;
+    vp.y = obj.y - vp.h / 2;
 
     // fire shots
     if (kc.keys[186]) {
