@@ -1,6 +1,6 @@
 
 var playerObj,
-shots = [],
+pShots = [],
 currentPl = {};
 lastFire = new Date();
 
@@ -79,8 +79,8 @@ var init = function () {
 
     playerObj = new Unit();
 
-    // shots
-    shots = new ShotCollection();
+    // player shots
+    pShots = new ShotCollection();
 
     _.l(vp);
     _.l(C);
@@ -172,7 +172,7 @@ draw = function () {
     C.hiDraw(function (ctx) {
 
         // just always draw all units in the collection
-        shots.units.forEach(function (sh) {
+        pShots.units.forEach(function (sh) {
 
             var obj = vp.makeVPRel(sh);
 
@@ -222,7 +222,7 @@ loop = function () {
 
         if (new Date() - lastFire >= 100) {
 
-            shots.add(new Shot({
+            pShots.add(new Shot({
 
                     x : obj.x + obj.w / 2 - 2,
                     y : obj.y + obj.h / 2 - 2,
@@ -249,7 +249,7 @@ loop = function () {
     }
 
     // step shots
-    shots.step();
+    pShots.step();
 
     draw();
 
