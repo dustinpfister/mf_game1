@@ -76,10 +76,10 @@ var init = function () {
 
     // playerObj
 
-	playerObj = new Unit();
-	
-	// shots
-	shots = new UnitCollection();
+    playerObj = new Unit();
+
+    // shots
+    shots = new UnitCollection();
 
     _.l(vp);
     _.l(C);
@@ -199,6 +199,21 @@ loop = function () {
     obj.x = vp.x + vp.w / 2 - obj.w / 2;
     obj.y = vp.y + vp.h / 2 - obj.h / 2;
 
+    // fire shots
+    if (kc.keys[186]) {
+
+        shots.add(new Unit({
+
+                x : obj.x,
+                y : obj.y,
+                w : 4,
+                h : 4
+
+            }));
+
+    }
+
+    // get planet
     var pl = onPl(S.getPos(obj.x, obj.y), obj);
 
     currentPl = {};
