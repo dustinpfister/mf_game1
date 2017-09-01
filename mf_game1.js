@@ -194,6 +194,9 @@ loop = function () {
     //x = Math.cos(Math.PI * 2 / max * i) * (vp.w / 4);
     //y = Math.sin(Math.PI * 2 / max * i) * (vp.h / 4);
 
+	
+    // player object
+    var obj = playerObj;
 
     var d = kc.d();
 
@@ -202,14 +205,14 @@ loop = function () {
         x += Math.cos(d) * 2;
         y += Math.sin(d) * 2;
 
+		obj.a = d;
+		
     }
 
     vp.lookAt(x, y);
 
     S.ls(vp.x, vp.y, vp.w, vp.h);
 
-    // player object
-    var obj = playerObj;
 
     obj.x = vp.x + vp.w / 2 - obj.w / 2;
     obj.y = vp.y + vp.h / 2 - obj.h / 2;
@@ -222,7 +225,8 @@ loop = function () {
                 x : obj.x,
                 y : obj.y,
                 w : 4,
-                h : 4
+                h : 4,
+				a : obj.a
 
             }));
 
