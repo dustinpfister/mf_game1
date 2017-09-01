@@ -79,7 +79,7 @@ var init = function () {
     playerObj = new Unit();
 
     // shots
-    shots = new UnitCollection();
+    shots = new ShotCollection();
 
     _.l(vp);
     _.l(C);
@@ -238,6 +238,9 @@ loop = function () {
 
     }
 
+	// step shots
+	shots.step();
+	
     draw();
 
     i += 1;
