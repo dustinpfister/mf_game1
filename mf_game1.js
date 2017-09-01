@@ -1,5 +1,29 @@
 
-var playerObj;
+var playerObj,
+currentPl = {};
+
+// my "on planet" method
+var onPl = function (sec, obj) {
+
+    var i;
+    if (sec) {
+
+        i = sec.pl.length;
+        while (i--) {
+
+            if (_.b(sec.pl[i], obj)) {
+
+                return sec.pl[i];
+
+            }
+
+        }
+
+    }
+
+    return false;
+
+};
 
 var init = function () {
 
@@ -142,6 +166,8 @@ draw = function () {
         ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
 
     });
+	
+	C.drawInfo([currentPl.id || '']);
 
 },
 
@@ -171,7 +197,16 @@ loop = function () {
     var obj = playerObj;
 
     obj.x = vp.x + vp.w / 2 - obj.w / 2;
-		obj.y = vp.y + vp.h / 2 - obj.h / 2;
+    obj.y = vp.y + vp.h / 2 - obj.h / 2;
+
+    var pl = onPl(S.getPos(obj.x, obj.y), obj);
+
+	currentPl = {};
+    if (pl) {
+
+        currentPl = pl;
+
+    }
 
     draw();
 
