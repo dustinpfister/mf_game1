@@ -2,6 +2,7 @@
 var playerObj,
 shots = [],
 currentPl = {};
+lastFire = new Date();
 
 // my "on planet" method
 var onPl = function (sec, obj) {
@@ -219,15 +220,21 @@ loop = function () {
     // fire shots
     if (kc.keys[186]) {
 
-        shots.add(new Shot({
+        if (new Date() - lastFire >= 100) {
 
-                x : obj.x + obj.w / 2 -2,
-                y : obj.y + obj.h / 2 -2,
-                w : 4,
-                h : 4,
-                a : obj.a
+            shots.add(new Shot({
 
-            }));
+                    x : obj.x + obj.w / 2 - 2,
+                    y : obj.y + obj.h / 2 - 2,
+                    w : 4,
+                    h : 4,
+                    a : obj.a
+
+                }));
+
+            lastFire = new Date();
+
+        }
 
     }
 
