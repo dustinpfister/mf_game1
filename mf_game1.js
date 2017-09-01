@@ -136,8 +136,8 @@ draw = function () {
     // draw the player object
     C.hiDraw(function (ctx) {
 
-	    var obj = vp.makeVPRel(playerObj);
-	
+        var obj = vp.makeVPRel(playerObj);
+
         ctx.strokeStyle = '#ff00ff';
         ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
 
@@ -150,18 +150,28 @@ loop = function () {
 
     requestAnimationFrame(loop);
 
-    x = Math.cos(Math.PI * 2 / max * i) * (vp.w / 4);
-    y = Math.sin(Math.PI * 2 / max * i) * (vp.h / 4);
+    //x = Math.cos(Math.PI * 2 / max * i) * (vp.w / 4);
+    //y = Math.sin(Math.PI * 2 / max * i) * (vp.h / 4);
+
+
+    var d = kc.d();
+
+    if (d >= 0) {
+
+        x += Math.cos(d) * 2;
+        y += Math.sin(d) * 2;
+
+    }
 
     vp.lookAt(x, y);
 
     S.ls(vp.x, vp.y, vp.w, vp.h);
-	
-	// player object
-	var obj = playerObj;
-	
-	obj.x = vp.x + vp.w / 2 - obj.w / 2;
-	obj.y = vp.y + vp.h / 2 - obj.h / 2;
+
+    // player object
+    var obj = playerObj;
+
+    obj.x = vp.x + vp.w / 2 - obj.w / 2;
+		obj.y = vp.y + vp.h / 2 - obj.h / 2;
 
     draw();
 
