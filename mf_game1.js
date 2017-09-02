@@ -164,10 +164,14 @@ draw = function () {
     });
 
     // draw shots
+	
     C.hiDraw(function (ctx) {
 
+	
         // just always draw all units in the collection
-        pShots.units.forEach(function (sh) {
+        //pShots.units.forEach(function (sh) {
+
+		ps.shots.units.forEach(function (sh) {
 
             var obj = vp.makeVPRel(sh);
 
@@ -177,6 +181,7 @@ draw = function () {
         });
 
     });
+
 
     C.drawInfo([currentPl.id || '']);
 
@@ -254,6 +259,8 @@ loop = function () {
 
     // step shots
     pShots.step();
+	
+	ps.update();
 
     draw();
 
