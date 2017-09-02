@@ -208,14 +208,26 @@ loop = function () {
 
         //obj.a = d;
 
+        /*
         if (obj.a < d) {
 
-            obj.a += Math.PI / 100;
+        obj.a += Math.PI / 100;
 
         } else {
 
+        obj.a -= Math.PI / 100;
+
+        }
+         */
+
+		// new _.asd method works great
+        if (_.asd(obj.a, d) == -1) {
+
             obj.a -= Math.PI / 100;
 
+        } else {
+
+            obj.a += Math.PI / 100;
         }
 
         obj.step();
