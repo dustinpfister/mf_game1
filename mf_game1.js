@@ -102,6 +102,7 @@ var init = function () {
     });
 
     _.l(ps);
+    _.l(es);
 
 },
 
@@ -162,10 +163,15 @@ draw = function () {
 
         es.units.forEach(function (ship) {
 
-            var ship = vp.makeVPRel(ship);
+            var obj = vp.makeVPRel(ship);
 
             ctx.strokeStyle = '#ff0000';
-            ctx.strokeRect(ship.x, ship.y, ship.w, ship.h);
+            ctx.fillStyle = '#ff0000';
+            ctx.textBaseline = 'top';
+            ctx.font = '10px courier';
+            ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
+
+            ctx.fillText(ship.hp, obj.x, obj.y);
 
         });
 
@@ -242,6 +248,7 @@ loop = function () {
     }
 
     ps.update();
+    es.update();
 
     draw();
 
