@@ -171,7 +171,16 @@ draw = function () {
             ctx.font = '10px courier';
             ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
 
-            ctx.fillText(ship.hp, obj.x, obj.y);
+            //ctx.fillText(ship.hp, obj.x, obj.y);
+            C.drawInfo(
+			[
+			
+			    'hp:' +ship.hp,
+			    'target: ' + ship.target
+			
+			], 
+			
+			obj.x, obj.y,12,'12px courier','#ff8888');
 
         });
 
