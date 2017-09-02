@@ -1,4 +1,5 @@
 
+
 var playerObj,
 pShots = [],
 currentPl = {};
@@ -113,19 +114,6 @@ draw = function () {
 
             ctx.strokeStyle = '#00ff00';
             ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
-            /*
-            obj = vp.scaleToFit({
-
-            x : sec.x,
-            y : sec.y,
-            w : S.sw,
-            h : S.sh
-
-            }, 320, 240, 0, 0);
-
-            ctx.strokeStyle = 'rgba(0,128,0,.5)';
-            ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
-             */
 
             if (sec.pl.length > 0) {
 
@@ -138,20 +126,6 @@ draw = function () {
 
                 });
 
-                /*
-                var w = 320,
-                h = 240,
-                x = 0,
-                y = 0;
-
-                pl = vp.scaleToFit(sec.pl, w, h, x, y);
-
-                ctx.fillStyle = 'rgba(128,128,128,.5)';
-                ctx.fillRect(x, y, w, h);
-                ctx.strokeStyle = 'rgba(0,128,128,.5)';
-                ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
-
-                 */
             }
 
         });
@@ -192,10 +166,6 @@ loop = function () {
 
     requestAnimationFrame(loop);
 
-    //x = Math.cos(Math.PI * 2 / max * i) * (vp.w / 4);
-    //y = Math.sin(Math.PI * 2 / max * i) * (vp.h / 4);
-
-
     // player object
     var obj = playerObj;
 
@@ -203,22 +173,6 @@ loop = function () {
 
     if (d >= 0) {
 
-        //x += Math.cos(d) * 2;
-        //y += Math.sin(d) * 2;
-
-        //obj.a = d;
-
-        /*
-        if (obj.a < d) {
-
-        obj.a += Math.PI / 100;
-
-        } else {
-
-        obj.a -= Math.PI / 100;
-
-        }
-         */
 
 		// new _.asd method works great
         if (_.asd(obj.a, d) == -1) {
@@ -233,14 +187,10 @@ loop = function () {
         obj.step();
     }
 
-    //obj.step();
-
     vp.lookAt(x, y);
 
     S.ls(vp.x, vp.y, vp.w, vp.h);
 
-    //obj.x = vp.x + vp.w / 2 - obj.w / 2;
-    //obj.y = vp.y + vp.h / 2 - obj.h / 2;
 
     vp.x = obj.x - vp.w / 2;
     vp.y = obj.y - vp.h / 2;
