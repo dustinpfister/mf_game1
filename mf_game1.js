@@ -177,7 +177,7 @@ draw = function () {
 
                     'hp:' + ship.hp,
                     //'target: ' + (ship.target ? ship.target : false)
-                    'dtt: ' + ship.dtt
+                    'dtt: ' + Math.floor(ship.dtt)
 
                 ],
 
