@@ -173,14 +173,15 @@ draw = function () {
 
             //ctx.fillText(ship.hp, obj.x, obj.y);
             C.drawInfo(
-			[
-			
-			    'hp:' +ship.hp,
-			    'target: ' + ship.target
-			
-			], 
-			
-			obj.x, obj.y,12,'12px courier','#ff8888');
+                [
+
+                    'hp:' + ship.hp,
+                    //'target: ' + (ship.target ? ship.target : false)
+                    'dtt: ' + ship.dtt
+
+                ],
+
+                obj.x, obj.y, 12, '12px courier', '#ff8888');
 
         });
 
