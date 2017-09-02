@@ -1,7 +1,7 @@
 
 // player ships
 var ps,
-
+es,
 currentPl = {};
 lastFire = new Date();
 
@@ -85,6 +85,22 @@ var init = function () {
     // add the single player ship
     ps.addShip();
 
+    es = new ShipCollection({
+            faction : 'e',
+            ai : true,
+            max : 5
+        });
+
+    // set enemy collections for each collection
+    ps.enemys = es;
+    es.enemys = ps;
+
+    es.addShip({
+
+        x : 200
+
+    });
+
     _.l(ps);
 
 },
@@ -132,7 +148,7 @@ draw = function () {
 
     });
 
-    // draw the player object
+    // draw ships
     C.hiDraw(function (ctx) {
 
         ps.units.forEach(function (ship) {
@@ -142,6 +158,14 @@ draw = function () {
             ctx.strokeStyle = '#ffff00';
             ctx.strokeRect(ship.x, ship.y, ship.w, ship.h);
 
+        });
+
+        es.units.forEach(function (ship) {
+
+            var ship = vp.makeVPRel(ship);
+
+            ctx.strokeStyle = '#ff0000';
+            ctx.strokeRect(ship.x, ship.y, ship.w, ship.h);
 
         });
 
