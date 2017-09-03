@@ -184,7 +184,8 @@ draw = function () {
                     //'target: ' + (ship.target ? ship.target : false)
                     'dtt: ' + Math.floor(ship.dtt),
                     'adt: ' + ship.adt,
-                    'aDir: ' + ship.aDir
+                    'aDir: ' + ship.aDir,
+                    'aDelta: ' + ship.aDelta
 
                 ],
 
