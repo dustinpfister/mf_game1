@@ -183,9 +183,11 @@ draw = function () {
                     'a: ' + ship.a,
                     //'target: ' + (ship.target ? ship.target : false)
                     'dtt: ' + Math.floor(ship.dtt),
-                    'adt: ' + ship.adt,
+                    'adt: ' + ship.adt.toFixed(2),
                     'aDir: ' + ship.aDir,
-                    'aDelta: ' + ship.aDelta
+                    'turnPer: ' + ship.turnPer.toFixed(2),
+                    'maxTurn: ' + ship.maxTurn.toFixed(2),
+                    'aDelta: ' + ship.aDelta.toFixed(2)
 
                 ],
 
