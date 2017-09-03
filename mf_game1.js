@@ -11,12 +11,16 @@ var onPl = function (sec, obj) {
     var i;
     if (sec) {
 
-        i = sec.pl.length;
-        while (i--) {
+        if (sec.pl) {
 
-            if (_.b(sec.pl[i], obj)) {
+            i = sec.pl.length;
+            while (i--) {
 
-                return sec.pl[i];
+                if (_.b(sec.pl[i], obj)) {
+
+                    return sec.pl[i];
+
+                }
 
             }
 
@@ -176,10 +180,11 @@ draw = function () {
                 [
 
                     'hp:' + ship.hp,
+					'a: ' + ship.a,
                     //'target: ' + (ship.target ? ship.target : false)
                     'dtt: ' + Math.floor(ship.dtt),
-					'adt: ' + ship.adt,
-					'aDelta: ' + ship.aDelta
+                    'adt: ' + ship.adt,
+                    'aDelta: ' + ship.aDelta
 
                 ],
 
