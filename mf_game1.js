@@ -180,11 +180,11 @@ draw = function () {
                 [
 
                     'hp:' + ship.hp,
-					'a: ' + ship.a,
+                    'a: ' + ship.a,
                     //'target: ' + (ship.target ? ship.target : false)
                     'dtt: ' + Math.floor(ship.dtt),
                     'adt: ' + ship.adt,
-                    'aDelta: ' + ship.aDelta
+                    'aDir: ' + ship.aDir
 
                 ],
 
