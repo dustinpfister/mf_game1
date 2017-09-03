@@ -159,40 +159,52 @@ draw = function () {
         // player ships
         ps.units.forEach(function (ship) {
 
-		    var obj = _.c(ship),
-		
+            var obj = _.c(ship),
+
             pos = vp.makeVPRel(obj);
-			
-			obj.x = pos.x;
-			obj.y = pos.y;
-            
-			C.drawInfo([obj.a],50,20)
-			
-			C.dBX(obj);
-			
-/*
+
+            obj.x = pos.x;
+            obj.y = pos.y;
+
+            C.drawInfo([obj.a], 50, 20)
+
+            C.dBX(obj);
+
+            /*
             C.dBX({
-				
-				x:ship.x,
-				y:ship.y,
-				w:ship.w,
-				h:ship.h,
-				hw : ship.hw,
-				hh : 16,
-				a:ship.a,
-				
-				s: '#ffffff',
-				f: '#000000',
-				i:3
-				
-			});
-			*/
+
+            x:ship.x,
+            y:ship.y,
+            w:ship.w,
+            h:ship.h,
+            hw : ship.hw,
+            hh : 16,
+            a:ship.a,
+
+            s: '#ffffff',
+            f: '#000000',
+            i:3
+
+            });
+             */
 
         });
 
         // enemy ships
         es.units.forEach(function (ship) {
 
+            var obj = _.c(ship),
+
+            pos = vp.makeVPRel(obj);
+
+            obj.x = pos.x;
+            obj.y = pos.y;
+
+            C.drawInfo([obj.a], 50, 20)
+
+            C.dBX(obj);
+
+            /*
             var obj = vp.makeVPRel(ship);
 
             ctx.strokeStyle = '#ff0000';
@@ -200,7 +212,7 @@ draw = function () {
             ctx.textBaseline = 'top';
             ctx.font = '10px courier';
             ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
-
+             */
             //ctx.fillText(ship.hp, obj.x, obj.y);
             C.drawInfo(
                 [
