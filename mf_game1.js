@@ -156,15 +156,41 @@ draw = function () {
     // draw ships
     C.hiDraw(function (ctx) {
 
+        // player ships
         ps.units.forEach(function (ship) {
 
-            var ship = vp.makeVPRel(ship);
-
-            ctx.strokeStyle = '#ffff00';
-            ctx.strokeRect(ship.x, ship.y, ship.w, ship.h);
+		    var obj = _.c(ship),
+		
+            pos = vp.makeVPRel(obj);
+			
+			obj.x = pos.x;
+			obj.y = pos.y;
+            
+			C.drawInfo([obj.a],50,20)
+			
+			C.dBX(obj);
+			
+/*
+            C.dBX({
+				
+				x:ship.x,
+				y:ship.y,
+				w:ship.w,
+				h:ship.h,
+				hw : ship.hw,
+				hh : 16,
+				a:ship.a,
+				
+				s: '#ffffff',
+				f: '#000000',
+				i:3
+				
+			});
+			*/
 
         });
 
+        // enemy ships
         es.units.forEach(function (ship) {
 
             var obj = vp.makeVPRel(ship);
@@ -198,16 +224,14 @@ draw = function () {
     });
 
     // draw shots
-
     C.hiDraw(function (ctx) {
 
-        // just always draw all units in the collection
-
+        // player shots
         ps.shots.units.forEach(function (sh) {
 
             var obj = vp.makeVPRel(sh);
 
-            ctx.fillStyle = '#ffffff';
+            ctx.fillStyle = '#00afff';
             ctx.fillRect(obj.x, obj.y, obj.w, obj.h);
 
         });
