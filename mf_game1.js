@@ -3,7 +3,7 @@
 var ps,
 es,
 currentPl = {};
-lastFire = new Date();
+//lastFire = new Date();
 
 // my "on planet" method
 var onPl = function (sec, obj) {
@@ -121,6 +121,8 @@ draw = function () {
     h;
 
     C.cls();
+
+    // draw sections
     S.load.forEach(function (sec) {
 
         C.hiDraw(function (ctx) {
@@ -158,7 +160,7 @@ draw = function () {
     C.hiDraw(function (ctx) {
 
         // player ships
-        ps.units.forEach(function (ship) {
+        rw.ps.units.forEach(function (ship) {
 
             var obj = _.c(ship),
 
@@ -173,7 +175,7 @@ draw = function () {
         });
 
         // enemy ships
-        es.units.forEach(function (ship) {
+        rw.es.units.forEach(function (ship) {
 
             var obj = _.c(ship),
 
@@ -211,7 +213,7 @@ draw = function () {
     C.hiDraw(function (ctx) {
 
         // player shots
-        ps.shots.units.forEach(function (sh) {
+        rw.ps.shots.units.forEach(function (sh) {
 
             var obj = vp.makeVPRel(sh);
 
@@ -222,7 +224,7 @@ draw = function () {
 
     });
 
-    C.drawInfo([currentPl.id || '']);
+    //C.drawInfo([currentPl.id || '']);
 
 },
 
@@ -301,5 +303,23 @@ loop = function () {
 
 };
 
-init();
-loop();
+_.l('wtf');
+_.l(rw);
+
+var loop2 = function () {
+
+    requestAnimationFrame(loop2);
+
+    rw.tick();
+    draw();
+
+};
+
+rw.init();
+
+_.l('cut it out');
+_.l(rw.ps);
+
+//init();
+//loop();
+loop2();
