@@ -1,7 +1,6 @@
 
 
 
-
 // draw method
 var draw = function () {
 
@@ -82,6 +81,7 @@ var draw = function () {
             C.drawInfo(
                 [
 
+                    'id: ' + ship.id,
                     'hp:' + ship.hp,
                     'a: ' + ship.a,
                     //'target: ' + (ship.target ? ship.target : false)
