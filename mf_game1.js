@@ -48,11 +48,13 @@ var draw = function () {
                 [
 
                     'i: ' + sec.i,
-                    'x,y: ' + sec.x + ',' + sec.y
+                    'x,y: ' + sec.x + ',' + sec.y,
+                    'X,Y:' + sec.X + ',' + sec.Y,
+                    'pl.length: ' + sec.pl.length
 
                 ],
 
-                obj.x + 60, obj.y + 60);
+                obj.x + 60, obj.y + 60, '', '', '#00ff00');
 
         });
 
