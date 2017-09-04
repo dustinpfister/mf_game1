@@ -165,28 +165,11 @@ draw = function () {
 
             obj.x = pos.x;
             obj.y = pos.y;
-
+            obj.f = '#00af88';
             C.drawInfo([obj.a], 50, 20)
 
             C.dBX(obj);
 
-            /*
-            C.dBX({
-
-            x:ship.x,
-            y:ship.y,
-            w:ship.w,
-            h:ship.h,
-            hw : ship.hw,
-            hh : 16,
-            a:ship.a,
-
-            s: '#ffffff',
-            f: '#000000',
-            i:3
-
-            });
-             */
 
         });
 
@@ -199,6 +182,8 @@ draw = function () {
 
             obj.x = pos.x;
             obj.y = pos.y;
+            obj.s = '#000000';
+            obj.f = '#af0000';
 
             C.drawInfo([obj.a], 50, 20)
 
