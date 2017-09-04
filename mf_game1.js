@@ -166,10 +166,8 @@ draw = function () {
             obj.x = pos.x;
             obj.y = pos.y;
             obj.f = '#00af88';
-            C.drawInfo([obj.a], 50, 20)
-
+            C.drawInfo([obj.a], 50, 20);
             C.dBX(obj);
-
 
         });
 
@@ -184,21 +182,9 @@ draw = function () {
             obj.y = pos.y;
             obj.s = '#000000';
             obj.f = '#af0000';
-
-            C.drawInfo([obj.a], 50, 20)
-
+            //C.drawInfo([obj.a], 50, 20);
             C.dBX(obj);
 
-            /*
-            var obj = vp.makeVPRel(ship);
-
-            ctx.strokeStyle = '#ff0000';
-            ctx.fillStyle = '#ff0000';
-            ctx.textBaseline = 'top';
-            ctx.font = '10px courier';
-            ctx.strokeRect(obj.x, obj.y, obj.w, obj.h);
-             */
-            //ctx.fillText(ship.hp, obj.x, obj.y);
             C.drawInfo(
                 [
 
