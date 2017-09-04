@@ -42,6 +42,18 @@ var draw = function () {
 
             }
 
+            // draw section info
+            C.drawInfo(
+
+                [
+
+                    'i: ' + sec.i,
+                    'x,y: ' + sec.x + ',' + sec.y
+
+                ],
+
+                obj.x + 60, obj.y + 60);
+
         });
 
     });
