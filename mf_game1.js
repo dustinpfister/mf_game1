@@ -60,7 +60,7 @@ var draw = function () {
             obj.x = pos.x;
             obj.y = pos.y;
             obj.f = '#00af88';
-            C.drawInfo([obj.a], 50, 20);
+            //C.drawInfo([obj.a], 50, 20);
             C.dBX(obj);
 
         });
