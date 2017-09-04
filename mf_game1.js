@@ -83,6 +83,7 @@ var init = function () {
     // the New Player Ship Collection that will replace playerObj, and pShots
     ps = new ShipCollection({
             faction : 'p',
+            //ai : true,
             max : 1
         });
 
@@ -261,6 +262,18 @@ loop = function () {
     if (kc.keys[186]) {
 
         obj.shoot();
+
+    }
+
+    if (kc.keys[49]) {
+
+        ps.ai = true;
+
+    }
+
+    if (kc.keys[50]) {
+
+        ps.ai = false;
 
     }
 
