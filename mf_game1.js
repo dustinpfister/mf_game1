@@ -115,6 +115,8 @@ var draw = function () {
 
     });
 
+    C.drawInfo(['D : ' + rw.d.toFixed(2)], 10, 20);
+
     //C.drawInfo([currentPl.id || '']);
 
 },
